@@ -1,0 +1,24 @@
+#Makefile
+
+
+#hello: hello.c edajima.c
+#	gcc -o hello.c edajima.c
+
+hello: hello.o edajima.o
+	gcc -o hello hello.o edajima.o
+
+hello.o: hello.c
+	gcc -c hello.c
+
+#raiden: raiden.o
+#	gcc -o raiden raiden.o
+
+edajima.o: edajima.c
+	gcc -c edajima.c
+
+#raiden.o: raiden.c
+#	gcc -c raiden.c
+
+.PHONY: clean
+clean: 
+	rm -f hello hello.o edajima.o raiden raiden.o
