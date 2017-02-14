@@ -1,0 +1,15 @@
+#Makefile
+.PHONY: all
+all: 2LMani_IK
+
+2LMani_IK: 2link_IK-Manipulator.o
+	gcc -o 2LMani_IK 2link_IK-Manipulator.o -lm
+
+2link_IK-Manipulator.o: 2link_IK-Manipulator.cpp 
+	gcc -c 2link_IK-Manipulator.cpp -lm 
+
+func.o: func.h -lm
+
+.PHONY: clean
+clean:
+	rm -rf 2LMani_IK 2link_IK-Manipulator.o
